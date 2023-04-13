@@ -92,7 +92,14 @@ class SinglyLinkedList{
     }
 
     get(index) {
+        if (index < 0 || index > this.length) return null;
 
+        let current = this.head;
+        while (index > 0) {
+            current = current.next;
+            index --;
+        }
+        return current;
     }
 
 
@@ -103,8 +110,6 @@ let list = new SinglyLinkedList();
 list.push('Hello');
 list.push('There');
 list.push('I wonder');
-console.log(list.shift())
-console.log(list.shift())
-console.log(list.shift())
-console.log(list);
-console.log(list.unshift('thing'));
+list.unshift('thing')
+console.log(list.get(3));
+
