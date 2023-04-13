@@ -91,6 +91,10 @@ class SinglyLinkedList{
         return this;
     }
 
+    get(index) {
+
+    }
+
 
 }
 
