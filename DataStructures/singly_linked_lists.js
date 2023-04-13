@@ -102,6 +102,13 @@ class SinglyLinkedList{
         return current;
     }
 
+    set(index, value){
+        const node = this.get(index)
+        if (!node) return false;
+        node.val = value;
+        return true;
+    }
+
 
 }
 
@@ -110,6 +117,7 @@ let list = new SinglyLinkedList();
 list.push('Hello');
 list.push('There');
 list.push('I wonder');
-list.unshift('thing')
+list.unshift('thing');
+list.set(4, 'hmm');
 console.log(list.get(3));
 
