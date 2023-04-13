@@ -109,6 +109,17 @@ class SinglyLinkedList{
         return true;
     }
 
+    // NOT WORKING, for later.
+    insert(index,value){
+        let node = this.get(index)
+        if (!node) return false;
+        let currentNode = node;
+        const newNode = new Node(value);
+        newNode.next = currentNode;
+        node = newNode;
+        this.length ++;
+        return this;
+    }
 
 }
 
@@ -119,5 +130,6 @@ list.push('There');
 list.push('I wonder');
 list.unshift('thing');
 list.set(4, 'hmm');
-console.log(list.get(3));
+list.insert(2, 'yolo');
+console.log(list.get(2));
 
