@@ -74,19 +74,23 @@ class SinglyLinkedList{
     // 6. return current
     shift () {
         if (!this.head) return undefined;
-
         const current = this.head;
-        if (this.length <=  1) {
-            this.head = null
-            this.tail = null;
-            this.length = 0;
-            return current;
-        }
         this.head = this.head.next;
         this.length --;
+        if (this.length == 0) this.tail = null;
 
         return current;
     }
+
+    unshift (value) {
+        const newHead = new Node(value);
+        if (!this.head) this.tail = newHead;
+        newHead.next = this.head;
+        this.head = newHead;
+        this.length ++;
+        return this;
+    }
+
 
 }
 
@@ -99,3 +103,4 @@ console.log(list.shift())
 console.log(list.shift())
 console.log(list.shift())
 console.log(list);
+console.log(list.unshift('thing'));
