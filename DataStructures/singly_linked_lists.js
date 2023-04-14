@@ -109,7 +109,6 @@ class SinglyLinkedList{
         return true;
     }
 
-    // NOT WORKING, or later.
     insert(index,value){
         if (index < 0 || index > this.length) return false;
         if (index === this.length) return !!this.push(value);
@@ -120,9 +119,20 @@ class SinglyLinkedList{
         let temp = prev.next;
         prev.next = newNode;
         newNode.next = temp;
-
         this.length ++;
         return true;
+    }
+
+    remove(index) {
+        if (index < 0 || index > this.length) return undefined;
+        if (index === this.length -1) return this.pop()
+        if (index === 0) return this.shift();
+
+        const currentNode = this.get(index-1);
+        const removed = currentNode.next;
+        currentNode.next = currentNode.next.next;
+        this.length --;
+        return removed;
     }
 
 }
@@ -135,5 +145,6 @@ list.push('I wonder');
 list.unshift('thing');
 list.set(4, 'hmm');
 list.insert(0, 'yolo');
-console.log(list.get(0));
+list.get(0)
 console.log(JSON.stringify(list));
+console.log(list.remove(2));
